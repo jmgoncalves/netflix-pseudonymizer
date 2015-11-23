@@ -1,0 +1,85 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>es.jmgoncalv.pseudo.inspector</groupId>
+	<artifactId>dataset-inspector</artifactId>
+	<version>0.0.1</version>
+	
+	<properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>es.jmgoncalv.pseudo.netflix</groupId>
+			<artifactId>netflix-commons</artifactId>
+			<version>0.0.1</version>
+			<scope>compile</scope>
+	    </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+	    </dependency>
+	</dependencies>
+	
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-compiler-plugin</artifactId>
+			    <configuration>
+			        <source>1.7</source>
+			        <target>1.7</target>
+			        <showDeprecation>true</showDeprecation>
+			        <showWarnings>true</showWarnings>
+			    </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-surefire-plugin</artifactId>
+			    <version>2.12.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <version>2.2.1</version>
+		        <executions>
+					<execution>
+						<id>package-jar-with-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							<archive>
+								<manifest>
+									<mainClass>es.jmgoncalv.pseudo.inspector.DatasetInspectorMain</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<repositories>
+		<repository>
+		    <id>sonatype-nexus-public</id>
+		    <name>SonaType public snapshots and releases repository</name>
+		    <url>https://oss.sonatype.org/content/groups/public</url>
+		    <releases> 
+		        <enabled>true</enabled>
+		    </releases> 
+		    <snapshots>
+		        <enabled>true</enabled>
+		    </snapshots>
+		</repository>
+	</repositories>
+</project>

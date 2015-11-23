@@ -1,0 +1,26 @@
+Kadri Framework for the Netflix Prize - Changelog
+
+1.2.1 (2009-08-03)
+----------------
+Fixed bugs with Implicit vote data
+
+1.2 (2009-07-23)
+----------------
+Added indexing of movie and user dates
+	-Includes creation of dateindexes.*.data files
+	-Added DataBase::mapIndexes() to mmap dateindexes.*.data files
+Added mf_bias.cpp
+Added mf_time.cpp
+Edited knn.cpp - moved run_knn() to KNN::setup()
+Edited icefox/src database.h and database.cpp files
+
+1.1 (2009-07-20)
+----------------
+Added user_knn.cpp
+Edited matrix_factorization.cpp class to make it much faster
+Modified pearson function in knn.cpp
+Added matrix_factorization_pp.cpp (flawed version)
+
+1.0
+----------------
+Initial Release
